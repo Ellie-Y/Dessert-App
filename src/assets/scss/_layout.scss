@@ -1,0 +1,13 @@
+.center {
+  display: flex;
+  justify-content: center;
+
+  &.coloum {
+    flex-direction: column;
+  }
+}
+
+.all-center {
+  @extend .center;
+  align-items: center;
+}

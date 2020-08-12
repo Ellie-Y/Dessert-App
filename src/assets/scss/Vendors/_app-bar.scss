@@ -1,0 +1,26 @@
+#header {
+  height: 75px;
+
+  // Override material UI
+  .MuiAppBar-root {
+    height: 100%;
+    background-color: $fg;
+    padding: 0 20px;
+    @include boxShadowNoBorder;
+    // box-shadow: none;
+
+    .MuiToolbar-root {
+      height: 100%;
+    }
+  }
+
+  .content {
+    width: 100%;
+    @extend %displayFlex;
+    justify-content: space-between;
+
+    p {
+      font-weight: 500;
+    }
+  }
+}

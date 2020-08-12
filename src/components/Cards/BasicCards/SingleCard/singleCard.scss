@@ -1,0 +1,39 @@
+#basic-card {
+  padding: 18px 14px;
+  background-color: #f5edeb;
+  border-radius: 15px;
+  margin-right: 16px;
+  display: flex;
+  flex-direction: column;
+
+  //* Image part
+  .image-wrapper {
+    width: 108px;
+    height: 108px;
+    img {
+      border-radius: 5px;
+    }
+  }
+
+  //* Dessert name
+  .name {
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-top: 11px;
+  }
+
+  //* Price and shopping cart
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    p {
+      font-weight: bold;
+    }
+    i {
+      font-size: 1rem;
+      margin-right: 5px;
+      color: #AE7F7F;
+    }
+  }
+}

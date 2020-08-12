@@ -1,0 +1,21 @@
+.sale-card-wrapper {
+  width: 100%;
+  overflow: hidden;
+
+  .sale-card-group {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    padding: 14px 30px;
+    overflow-x: auto;
+    @extend %removeScrollBar;
+    
+    // 需要加个伪元素把父容器撑开
+    &::after {
+      content: "";
+      display: block;
+      flex: 0 0 16px;  // 30px - 14px
+    }
+  }
+  
+}

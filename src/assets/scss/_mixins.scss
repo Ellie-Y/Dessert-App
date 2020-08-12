@@ -1,0 +1,90 @@
+@mixin hoverActiveFocus($property, $value) {
+
+  &:hover,
+  &:active,
+  &:focus {
+    #{$property}: $value;
+  }
+}
+
+// Float Clearing
+@mixin clear() {
+
+  &:before,
+  &:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+// Offscreen Text
+@mixin linkTextOffscreen() {
+  text-indent: -9999px;
+  overflow: hidden;
+  text-decoration: none;
+  display: block;
+  font-size: 0;
+  text-align: start;
+}
+
+@mixin boxShadow() {
+  border: 1px solid $border_color;
+  box-shadow: 0 2px 6px $box_shadow;
+}
+
+@mixin boxShadowNoBorder() {
+  box-shadow: 0 0px 6px $box_shadow;
+}
+
+@mixin transition($time) {
+  -webkit-transition: all $time linear;
+  -moz-transition: all $time linear;
+  -o-transition: all $time linear;
+  transition: all $time linear;
+}
+
+@mixin scoll($direction) {
+  overflow-#{$direction}: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  & {
+    -ms-overflow-style: none;
+  }
+
+  & {
+    overflow: -moz-scrollbars-none;
+  }
+}
+
+
+@mixin placeholder($color) {
+  &::-webkit-input-placeholder { 
+    color: $color;
+  }
+
+  &::-ms-input-placeholder { 
+    color: $color;
+  }
+
+  &::placeholder { 
+    color: $color;
+  }
+}
+
+@mixin displayFlex($option) {
+  @if $option == 'all' {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+}

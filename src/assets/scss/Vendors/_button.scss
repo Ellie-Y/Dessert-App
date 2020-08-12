@@ -1,0 +1,16 @@
+button {
+  &.button-default {
+    background-color: $signum_blue;
+    padding: 10px 14px;
+    border-radius: 18px;
+    text-transform: capitalize;
+    
+    &:hover {
+      background-color: lighten($color: $signum_blue, $amount: 2%);
+    }
+
+    a {  // color also is white when button is a link
+      color: $fg;
+    }
+  }
+}
