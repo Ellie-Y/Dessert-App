@@ -31,6 +31,16 @@ module.exports = (env) => {
               loader: "sass-loader"
             }
           ]
+        },
+        {
+          test: /\.svg$/,
+          use: [{
+              loader: 'svg-sprite-loader'
+            },
+            // {
+            //   loader: 'svgo-loader',
+            // }
+          ],
         }
       ]
     },

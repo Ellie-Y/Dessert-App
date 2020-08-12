@@ -4,14 +4,20 @@ import Container from '@material-ui/core/Container';
 
 import './category.scss'
 
+
+const imageUrls = [
+  'https://i.ibb.co/8bXCv6d/chocolate-cake.png',
+  'https://i.ibb.co/yQks0y1/cookies.png',
+  'https://i.ibb.co/c8RP5Cv/bakery.png'
+];
+
 function CategoryCard(props) {
   // NOTE 这里图片生成的名字是大写，但是原始文件的名字是小写
-  const icon = `./icons/category/${props.name}.svg`
   return (
     <div id="category-card" className={props.name} >
       <div className="card-wrapper">
         <div className="img-wrapper">
-          <img src={icon} alt={props.name} />
+          <img src={props.url} alt={props.name} />
         </div>
         <h2 className="name">{props.name}</h2>
       </div>
@@ -20,11 +26,12 @@ function CategoryCard(props) {
 }
 
 CategoryCard.propTypes = {
+  url: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired
 }
 
 
-function Category(props) {
+function Category() {
   return (
     <Container id="category">
       <div className="wrapper">
@@ -34,9 +41,9 @@ function Category(props) {
         </div>
 
         <div className="card-group">
-          <CategoryCard name='Cake' />
-          <CategoryCard name='Biscuit' />
-          <CategoryCard name="Bakery" />
+          <CategoryCard url={imageUrls[0]} name='Cake' />
+          <CategoryCard url={imageUrls[1]} name='Biscuit' />
+          <CategoryCard url={imageUrls[2]} name="Bakery" />
         </div>
       </div>
 
