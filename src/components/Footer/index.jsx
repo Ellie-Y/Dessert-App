@@ -4,13 +4,11 @@ import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import Svg from '../Svg'
 
-
-
 import './index.scss'
 
 
 function Footer() {
-  const currentLocation = useLocation().pathname.slice(1);    // get current location
+  const currentLocation = useLocation().pathname.slice(1);    // get current router
   const [value, setValue] = React.useState(currentLocation === '' ? 'home' : currentLocation);   // Set current location as the active one
 
   const handleChange = (e, currentIcon) => {

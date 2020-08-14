@@ -58,7 +58,7 @@ module.exports = (env) => {
       contentBase: path.join(__dirname, "public/"),
       port: 4000,
       publicPath: "http://localhost:4000/dist/",
-      hotOnly: true,
+      hot: true,
       historyApiFallback: true
     },
     devtool: isProduction ? 'source-map' : 'inline-source-map',

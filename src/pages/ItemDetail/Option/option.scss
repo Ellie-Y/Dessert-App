@@ -1,0 +1,31 @@
+#option {
+  margin-top: 15px;
+
+  .option-title {
+    margin-bottom: 10px;
+
+    .option-title-name {
+      color: #725E5A;
+    }
+  }
+
+  .option-group {
+    display: flex;
+
+    .option-item {
+      padding: 8px;
+      border-radius: 8px;
+      margin-right: 30px;
+      cursor: pointer;
+
+      &.clicked {
+        // border: 2px solid #e9bbaf;
+        background-color: #f5dad4;
+      }
+
+      .item-name {
+        text-align: center;
+      }
+    }
+  }
+}

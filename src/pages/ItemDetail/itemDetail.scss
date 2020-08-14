@@ -1,6 +1,43 @@
+$imgHeight: 33%;
+$borderRadius: 30px;
+
 #item-detail {
+  position: relative;
+  height: 100vh;
+
   .img-wrapper {
     width: 100%;
-    height: 250px;
+    height: $imgHeight;
+  }
+
+  .content {
+    position: relative;
+    top: -3%;
+    background-color: #fff;
+    box-sizing: border-box;
+    padding: 0 36px;
+    border-top-left-radius: $borderRadius;
+    border-top-right-radius: $borderRadius;
+
+    .title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 22px;
+
+      .name,
+      .price {
+        font-size: 1.4rem;
+
+        span {    //人民币符号
+          font-size: 1rem;
+        }
+      }
+
+      .price {
+        font-weight: bold;
+        margin-right: 20px;
+      }
+    }
   }
 }

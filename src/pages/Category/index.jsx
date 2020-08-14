@@ -12,7 +12,6 @@ const imageUrls = [
 ];
 
 function CategoryCard(props) {
-  // NOTE 这里图片生成的名字是大写，但是原始文件的名字是小写
   return (
     <div id="category-card" className={props.name} >
       <div className="card-wrapper">
