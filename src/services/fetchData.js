@@ -1,7 +1,7 @@
-const APIKey = '9ce5e6b0';
+const API = 'https://72t2069lda.execute-api.us-east-1.amazonaws.com/dev/';
 
-async function fetchData(api) {
-  const data = await fetch(api + 'key=' + APIKey)
+async function fetchData(method) {
+  const data = await fetch(API + method)
     .then(res => res.json())
   return data;
 }

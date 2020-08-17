@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import SingleCard from './SingleCard'
 import getDailyCards from '../../../services/getDailyCards'
 
-//* Dislay Daily cards as a group
+// Dislay Daily cards as a group
 function DailyCardGroup() {
   const [dailyCardData, setDailyCardData] = useState({ data: [] });
 

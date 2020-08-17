@@ -29,7 +29,7 @@ SingCard.defaultProps = {
 }
 
 SingCard.propTypes = {
-  itemId: PropTypes.number,
+  itemId: PropTypes.string,
   imageUrl: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,

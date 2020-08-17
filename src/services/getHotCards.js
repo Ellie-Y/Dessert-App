@@ -1,7 +1,7 @@
 import fetchData from './fetchData'
 
 function getHotCards() {
-  return fetchData('https://my.api.mockaroo.com/hotDisplay.json?');
+  return fetchData('hotItems');
 }
 
 export default getHotCards;
