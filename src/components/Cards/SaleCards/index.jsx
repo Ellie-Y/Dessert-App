@@ -7,7 +7,7 @@ import './index.scss'
 
 function SaleCard(props) {
   return (
-    <div id="sale-card" key={props.itemId}>
+    <div className="sale-card" key={props.itemId}>
       <Link to={`/item/${props.itemId}`}>
         <img src={props.imageUrl} alt={props.alt}></img>
       </Link>

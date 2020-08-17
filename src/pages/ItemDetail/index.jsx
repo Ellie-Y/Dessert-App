@@ -18,7 +18,9 @@ function ItemDetail(props) {
 
         {/* size 和 taste 是一个组件 */}
         <div className="size">
+          <Option name='Size' options={['6寸', '8寸', '10寸']} />
           <Option />
+
         </div>
         <div className="taste"></div>
         

@@ -6,6 +6,4 @@ async function getSaleCards() {
   return allUsers;
 }
 
-
-
 export default getSaleCards;

@@ -6,7 +6,7 @@ import './singleCard.scss'
 
 function SingCard(props) {
   return (
-    <div id="basic-card">
+    <div className="basic-card">
       <Link to={`/item/${props.itemId}`}>
         <div className="image-wrapper">
           <img src={props.imageUrl} alt={props.alt}></img>
