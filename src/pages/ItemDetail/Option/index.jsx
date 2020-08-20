@@ -10,20 +10,25 @@ Option.propTypes = {
 
 function Option(props) {
   const options = props.options;
-  const [clicked, setClick] = React.useState(options[0]);  //首选项默认选中
+  const [clicked, setClick] = useState('');
 
   return (
-    <div id="option">
+    <div className="option">
       <div className="option-title">
         <p className="option-title-name">{props.name}</p>
       </div>
       <div className="option-group">
         {
           options.map((option, i) => (
+            // click 函数要包一层才不会立即触发
             <div
-              onClick={() => setClick(option)}
+              onClick={() => {
+                console.log(option);
+                setClick(option);
+              }}    
               className={clicked === option ? `option-item item${i} clicked` : `option-item item${i}`}
-              key={i} >
+              key={i} 
+              >
               <p className="item-name">{option}</p>
             </div>
           ))

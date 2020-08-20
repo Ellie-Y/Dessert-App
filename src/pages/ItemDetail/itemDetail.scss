@@ -1,5 +1,6 @@
 $imgHeight: 33%;
 $borderRadius: 30px;
+$footerHeight: 56px;
 
 #item-detail {
   position: relative;
@@ -10,12 +11,12 @@ $borderRadius: 30px;
     height: $imgHeight;
   }
 
-  .content {
+  .content-wrapper {
     position: relative;
     top: -3%;
     background-color: #fff;
     box-sizing: border-box;
-    padding: 0 36px;
+    padding: 20px 36px;
     border-top-left-radius: $borderRadius;
     border-top-right-radius: $borderRadius;
 
@@ -23,13 +24,13 @@ $borderRadius: 30px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding-top: 22px;
 
       .name,
       .price {
         font-size: 1.4rem;
 
-        span {    //人民币符号
+        span {
+          //人民币符号
           font-size: 1rem;
         }
       }
@@ -37,6 +38,32 @@ $borderRadius: 30px;
       .price {
         font-weight: bold;
         margin-right: 20px;
+      }
+    }
+  }
+
+  .cartBtn-wrapper {
+    position: fixed;
+    bottom: $footerHeight;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0 15px 0;
+
+    // add to cart button override
+    .MuiButtonBase-root {
+      &.cartBtn {
+        width: 200px;
+        height: 42px;
+        border-radius: 30px;
+        background-color: #f5b0a3;
+        box-shadow: 2px 3px 10px #e4e4e4;
+        span {
+          font-weight: bold;
+          text-transform: capitalize;
+          font-size: 1.1rem;
+        }
       }
     }
   }

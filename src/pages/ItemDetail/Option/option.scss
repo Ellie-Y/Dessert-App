@@ -1,11 +1,13 @@
-#option {
+$pink: #f5dad4;
+
+.option {
   margin-top: 15px;
 
   .option-title {
     margin-bottom: 10px;
 
     .option-title-name {
-      color: #725E5A;
+      color: #b39a96;
     }
   }
 
@@ -13,14 +15,14 @@
     display: flex;
 
     .option-item {
-      padding: 8px;
+      padding: 8px 10px;
       border-radius: 8px;
       margin-right: 20px;
+      background-color: rgb(243, 243, 243);
       cursor: pointer;
 
       &.clicked {
-        // border: 2px solid #e9bbaf;
-        background-color: #f5dad4;
+        background-color: $pink;
       }
 
       .item-name {

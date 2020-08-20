@@ -1,6 +1,8 @@
 import React from 'react'
+import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types'
 import Option from './Option'
+import Quantity from './Quantity'
 
 import './itemDetail.scss'
 
@@ -10,25 +12,20 @@ function ItemDetail(props) {
       <div className="img-wrapper">
         <img src="https://i.ibb.co/WKc1xbG/Wechat-IMG19771.jpg" alt={props.alt} />
       </div>
-      <div className="content">
-        <div className="title">
-          <p className="name">Mike Cookie</p>
-          <p className="price"><span>¥</span>20</p>
-        </div>
-
-        {/* size 和 taste 是一个组件 */}
-        <div className="size">
+      <div className="content-wrapper">
+        <div className="content">
+          {/* Title */}
+          <div className="title">
+            <p className="name">Mike Cookie</p>
+            <p className="price"><span>¥</span>20</p>
+          </div>
           <Option name='Size' options={['6寸', '8寸', '10寸']} />
           <Option />
-
+          <Quantity count={1} />
         </div>
-        <div className="taste"></div>
-        
-        {/* quantity 是一个组件 */}
-        <div className="quantity"></div>
       </div>
-      <div className="cart-button">
-
+      <div className="cartBtn-wrapper">
+        <Button className="cartBtn" variant="contained" disableElevation>Add to cart</Button>
       </div>
     </div>
   )
