@@ -1,0 +1,28 @@
+.cart-item {
+  display: flex;
+  position: relative;
+
+  .item-desc {
+    margin-left: 20px;
+
+    & > *:not(:first-child):not(:last-child) {
+      margin-top: 5px;
+    }
+
+    .item-price {
+      font-weight: bold;
+    }
+
+    .item-detail {
+      font-size: 14px;
+      color: rgb(150, 150, 150);
+    }
+  }
+
+  .delete {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}

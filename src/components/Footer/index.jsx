@@ -2,7 +2,8 @@ import React from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import Svg from '../Svg'
+import Svg from '../Svg';
+import Badge from '@material-ui/core/Badge';
 
 import './index.scss'
 
@@ -33,8 +34,15 @@ function Footer() {
         component={Link}
         to='/cart'
         value="cart"
-        icon={value === 'cart' ? <Svg name='cart-click' /> : <Svg name='cart' />}
+        icon={ value === 'cart'
+          ? <Badge badgeContent={1} color="primary" showZero>
+              <Svg name='cart-click' />
+            </Badge>
+          : <Badge badgeContent={1} color="primary" showZero>
+              <Svg name='cart' />
+            </Badge> }
       />
+
       <BottomNavigationAction
         component={Link}
         to='/profile'

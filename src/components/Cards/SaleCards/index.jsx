@@ -12,7 +12,6 @@ function SaleCard(props) {
         <img src={props.imageUrl} alt={props.alt}></img>
       </Link>
     </div>
-
   )
 }
 

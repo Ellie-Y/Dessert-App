@@ -5,8 +5,6 @@ import HotCardGroup from '../../components/Cards/BasicCards/hotCardGroup'
 import DailyCardGroup from '../../components/Cards/BasicCards/dailyCardGroup'
 
 
-
-
 export default function Home() {
   return (
     <div id="app-wrapper">

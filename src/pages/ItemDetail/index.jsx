@@ -1,23 +1,37 @@
-import React from 'react'
-import Button from '@material-ui/core/Button';
+import React, { useState, useEffect } from 'react'
+import Button from '@material-ui/core/Button'
 import PropTypes from 'prop-types'
 import Option from './Option'
-import Quantity from './Quantity'
+import Quantity from '../../components/Quantity'
+import getProducts from '../../services/getProducts'
+
 
 import './itemDetail.scss'
 
-function ItemDetail(props) {
+function ItemDetail( { match }) {
+  const [item, setItem] = useState({ data: [] });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await getProducts(`/${match.params.id}`);
+      setItem(result.data);
+      console.log(result.data);
+    }
+
+    fetchData();
+  }, []);
+  console.log(match.params);  //TODO 拿到item的 ID，然后发送请求拿到具体的信息
   return (
     <div id="item-detail" >
       <div className="img-wrapper">
-        <img src="https://i.ibb.co/WKc1xbG/Wechat-IMG19771.jpg" alt={props.alt} />
+        <img src={item.imageUrl} alt={item.name} />
       </div>
       <div className="content-wrapper">
         <div className="content">
           {/* Title */}
           <div className="title">
-            <p className="name">Mike Cookie</p>
-            <p className="price"><span>¥</span>20</p>
+            <p className="name">{item.name}</p>
+            <p className="price"><span>¥</span>{item.price}</p>
           </div>
           <Option name='Size' options={['6寸', '8寸', '10寸']} />
           <Option />
@@ -25,15 +39,27 @@ function ItemDetail(props) {
         </div>
       </div>
       <div className="cartBtn-wrapper">
-        <Button className="cartBtn" variant="contained" disableElevation>Add to cart</Button>
+        <Button color="primary" className="cartBtn" variant="contained" disableElevation>Add to cart</Button>
       </div>
     </div>
   )
 }
 
 ItemDetail.propTypes = {
-
+  imgAlt: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  options: PropTypes.array.isRequired,
 }
+
+ItemDetail.defaultProps = {
+  imgAlt: "Cookie image",
+  name: "Cookie",
+  price: 20,
+  options: ['6寸', '8寸', '10寸']
+}
+
+
 
 export default ItemDetail
 

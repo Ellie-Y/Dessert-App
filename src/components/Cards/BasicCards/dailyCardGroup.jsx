@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import SingleCard from './SingleCard'
-import getDailyCards from '../../../services/getDailyCards'
+import getProducts from '../../../services/getProducts'
+// import getDailyCards from '../../../services/getDailyCards'
 
 // Dislay Daily cards as a group
 function DailyCardGroup() {
@@ -8,10 +9,10 @@ function DailyCardGroup() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await getDailyCards();
-      setDailyCardData(result);
+      const result = await getProducts('?limit=4');
+      setDailyCardData(result.data.data);
     }
-
+    
     fetchData();
   }, []);
 

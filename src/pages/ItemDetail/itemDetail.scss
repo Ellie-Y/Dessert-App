@@ -42,28 +42,16 @@ $footerHeight: 56px;
     }
   }
 
-  .cartBtn-wrapper {
-    position: fixed;
-    bottom: $footerHeight;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 0 15px 0;
+  .cartBtn-wrapper {  
+    //* cartBtn-wrapper style is in global.scss
 
-    // add to cart button override
+    // add-to-cart button override
     .MuiButtonBase-root {
       &.cartBtn {
         width: 200px;
         height: 42px;
         border-radius: 30px;
-        background-color: #f5b0a3;
         box-shadow: 2px 3px 10px #e4e4e4;
-        span {
-          font-weight: bold;
-          text-transform: capitalize;
-          font-size: 1.1rem;
-        }
       }
     }
   }

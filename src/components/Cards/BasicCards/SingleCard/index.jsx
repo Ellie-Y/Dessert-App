@@ -2,12 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
+
 import './singleCard.scss'
 
 function SingCard(props) {
   return (
     <div className="basic-card">
-      <Link to={`/item/${props.itemId}`}>
+      <Link to={`/item/${props.id}`}>
         <div className="image-wrapper">
           <img src={props.imageUrl} alt={props.alt}></img>
         </div>
@@ -24,16 +25,16 @@ function SingCard(props) {
 SingCard.defaultProps = {
   imageUrl: 'https://i.ibb.co/ZT4L6zs/default-Pic.jpg',
   name: 'No name yet',
-  price: 999,
+  price: '999',
   alt: 'No description yet'
 }
 
 SingCard.propTypes = {
-  itemId: PropTypes.string,
+  id: PropTypes.number,
   imageUrl: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired
+  price: PropTypes.string.isRequired
 }
 
 export default SingCard

@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import SingleCard from './SingleCard'
-import getHotCards from '../../../services/getHotCards'
+import getProducts from '../../../services/getProducts'
+// import getHotCards from '../../../services/getHotCards'
 
-//* Dislay hot cards as a group
-export default function HotCardGroup() {
+// Dislay hot cards as a group
+function HotCardGroup() {
   const [HotCardData, setHotCardData] = useState({ data: [] });
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await getHotCards();
-      setHotCardData(result);
+      const result = await getProducts('?type=sales&limit=4');
+      setHotCardData(result.data.data);
+      // console.log(result.data.data);
     }
 
     fetchData();
@@ -30,5 +32,7 @@ export default function HotCardGroup() {
     </div>
   )
 }
+
+export default HotCardGroup
 
 

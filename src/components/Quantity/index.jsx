@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Svg from '../../../components/Svg'
+import Svg from '../Svg'
 
 import './quantity.scss'
 
@@ -12,18 +12,30 @@ function Quantity(props) {
   const reduceCount = () => count > 1 ? setCount(count - 1) : false;
 
   return (
-    <div className="quantity-wrapper">
-      <p className="quantity-title">Quantity</p>
-      <div className="quantity">
+    props.type === 'min'
+      ?
+      <div className="quantity mt-1">
         <div onClick={() => reduceCount()} className="countBtn minus">
           <Svg name='minus' />
         </div>
-        <div className="number">{count}</div>
+        <div>{count}</div>
         <div onClick={() => addCount()} className="countBtn plus">
           <Svg name='plus' />
         </div>
       </div>
-    </div>
+      :
+      <div className="quantity-wrapper">
+        <p className="quantity-title">Quantity</p>
+        <div className="quantity">
+          <div onClick={() => reduceCount()} className="countBtn minus">
+            <Svg name='minus' />
+          </div>
+          <div className="number">{count}</div>
+          <div onClick={() => addCount()} className="countBtn plus">
+            <Svg name='plus' />
+          </div>
+        </div>
+      </div>
   )
 }
 

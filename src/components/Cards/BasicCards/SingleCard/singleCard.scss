@@ -7,14 +7,7 @@
   flex-direction: column;
   transition: all 0.3s linear;
 
-  //* Image part
-  .image-wrapper {
-    width: 108px;
-    height: 108px;
-    img {
-      border-radius: 5px;
-    }
-  }
+  //* Image part is global style
 
   //* Dessert name
   .name {

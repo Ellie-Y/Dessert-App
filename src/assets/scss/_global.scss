@@ -25,6 +25,14 @@ body {
   margin-bottom: 20%;
 }
 
+.image-wrapper {
+  width: 108px;
+  height: 108px;
+  img {
+    border-radius: 5px;
+  }
+}
+
 //* img with icon is a svg icon file
 img:not(.icon) {
   width: 100%;
@@ -56,4 +64,46 @@ button {
   span {
     color: $fg;
   }
+}
+
+// * Classes
+.bold {
+  font-weight: bold;
+}
+
+.light {
+  color: $light_text;
+  font-size: 0.8rem;
+}
+
+.mt-1 {
+  margin-top: 10px;
+}
+
+.mt-2 {
+  margin-top: 20px;
+}
+
+.mt-3 {
+  margin-top: 30px;
+}
+
+// cart 
+.cartBtn-wrapper {
+  position: fixed;
+    bottom: $footerHeight;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0;
+
+    .MuiButtonBase-root {
+      span {
+        font-weight: bold;
+        text-transform: capitalize;
+        font-size: 1rem;
+      }
+    }
 }

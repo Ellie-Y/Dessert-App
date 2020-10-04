@@ -1,0 +1,23 @@
+$padding: 36px;
+$inner-padding: 15px;
+
+#shopping-cart {
+  padding: 0 $padding;
+
+  .cartBtn-wrapper {
+    // Checkout width equals container width
+    width: calc(100% - #{($padding * 2) + ($inner-padding * 2)}); 
+    bottom: 68px;
+    justify-content: space-between;
+    background-color: #f8f3f0;
+    border-radius: 20px;
+    padding: 8px $inner-padding;
+
+    .MuiButtonBase-root {
+      &.checkout-btn {
+        border-radius: 15px;
+        padding: 10px 20px;
+      }
+    }
+  }
+}
