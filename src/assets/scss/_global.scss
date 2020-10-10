@@ -28,9 +28,6 @@ body {
 .image-wrapper {
   width: 108px;
   height: 108px;
-  img {
-    border-radius: 5px;
-  }
 }
 
 //* img with icon is a svg icon file
@@ -38,6 +35,7 @@ img:not(.icon) {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 5px;
 }
 
 h1 {
