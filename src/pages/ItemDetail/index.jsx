@@ -1,26 +1,34 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { CartContext } from '../../App'
 import Button from '@material-ui/core/Button'
 import PropTypes from 'prop-types'
 import Option from './Option'
 import Quantity from '../../components/Quantity'
 import getProducts from '../../services/getProducts'
 
-
 import './itemDetail.scss'
 
 function ItemDetail( { match }) {
+  // const context = useContext(CartContext);
   const [item, setItem] = useState({ data: [] });
 
   useEffect(() => {
     const fetchData = async () => {
       const result = await getProducts(`/${match.params.id}`);
       setItem(result.data);
+
       console.log(result.data);
     }
 
     fetchData();
   }, []);
+
+  const addToCart = () => {
+    console.log(item);
+  }
+
   console.log(match.params);  //TODO 拿到item的 ID，然后发送请求拿到具体的信息
+
   return (
     <div id="item-detail" >
       <div className="img-wrapper">
@@ -39,7 +47,11 @@ function ItemDetail( { match }) {
         </div>
       </div>
       <div className="cartBtn-wrapper">
-        <Button color="primary" className="cartBtn" variant="contained" disableElevation>Add to cart</Button>
+        <Button 
+        color="primary" className="cartBtn" variant="contained" 
+        disableElevation
+        onClick={addToCart}
+        >Add to cart</Button>
       </div>
     </div>
   )

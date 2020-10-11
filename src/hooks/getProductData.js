@@ -8,7 +8,7 @@ function getProductData(type) {
   useEffect(() => {
     const fetchData = async () => {
       const result = await getProducts(type);
-      setData(result.data.data);
+      setData(result.data);
     }
 
     // 也可以写成 IIFE, 不执行或者不写成 IIFE 就会返回 promise 对象

@@ -13,34 +13,30 @@ import "./App.scss";
 //* Hook reducer
 const CartContext = React.createContext();
 const initCart = [];
-const initCart2 = [
-  {
-    id: "",
-    name: "",
-    imgUrl: "",
-    price: "",
-  },
-];
 
 function reducer(state, action) {
   switch (action.type) {
     case "add":
       return { count: state.count + 1 };
+    case "delete":
+      return { count: state.quantity + 1 };
     case "decrease":
       return { count: state.quantity - 1 };
     case "increase":
       return { count: state.quantity + 1 };
     default:
-      throw new Error();
+      return state;
   }
 }
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initCart);
-  const { id, name, imgUrl, price, quantity } = state;
 
   return (
-    <CartContext.Provider value={dispatch}>
+    <CartContext.Provider value={{
+      cartState: state,
+      cartDispatch: dispatch,
+    }}>
       <Router>
         <Header />
 

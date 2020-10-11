@@ -4,7 +4,7 @@ import getProductData from '../../../hooks/getProductData'
 
 // Display hot cards as a group
 function HotCardGroup() {
-  const hotCards = getProductData('?type=sales&limit=4');
+  const hotCards = getProductData('?type=sales&limit=4').data;
 
   const hotCardGroup = Object.keys(hotCards).map(i => (
     <SingleCard
