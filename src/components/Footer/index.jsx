@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState }from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
@@ -7,10 +7,9 @@ import Badge from '@material-ui/core/Badge';
 
 import './index.scss'
 
-
 function Footer() {
   const currentLocation = useLocation().pathname.slice(1);    // get current router
-  const [value, setValue] = React.useState(currentLocation === '' ? 'home' : currentLocation);   // Set current location as the active one
+  const [value, setValue] = useState(currentLocation === '' ? 'home' : currentLocation);   // Set current location as the active one
 
   const handleChange = (e, currentIcon) => {
     setValue(currentIcon);
@@ -34,13 +33,13 @@ function Footer() {
         component={Link}
         to='/cart'
         value="cart"
-        icon={ value === 'cart'
+        icon={value === 'cart'
           ? <Badge badgeContent={1} color="primary" showZero>
-              <Svg name='cart-click' />
-            </Badge>
+            <Svg name='cart-click' />
+          </Badge>
           : <Badge badgeContent={1} color="primary" showZero>
-              <Svg name='cart' />
-            </Badge> }
+            <Svg name='cart' />
+          </Badge>}
       />
 
       <BottomNavigationAction

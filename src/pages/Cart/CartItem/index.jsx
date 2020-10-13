@@ -13,7 +13,7 @@ function CartItem() {
       </div>
       <div className="item-desc">
         <p className="item-title">Cup Cake</p>
-        <p className="item-price">¥30</p>
+        <p className="item-price">¥<span>30</span></p>
         <p className="item-detail">Matcha</p>
         <Quantity type="min" count={1} />
       </div>
