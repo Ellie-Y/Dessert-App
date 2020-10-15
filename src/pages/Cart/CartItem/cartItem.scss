@@ -14,8 +14,10 @@
     }
 
     .item-detail {
-      font-size: 14px;
-      color: rgb(150, 150, 150);
+      span {
+        font-size: 14px;
+        color: rgb(150, 150, 150);
+      }
     }
   }
 

@@ -5,17 +5,20 @@ import Svg from '../../../components/Svg'
 import './cartItem.scss'
 
 // * 需要有个公共的对象来存放产品，其他页面能拿到且添加修改这个对象
-function CartItem() {
+function CartItem(props) {
   return (
     <div className="cart-item mt-2">
       <div className="image-wrapper">
-        <img src="https://i.ibb.co/4Pjhwr0/Wechat-IMG19765.jpg" alt=""></img>
+        <img src={props.imageUrl} alt={props.name}></img>
       </div>
       <div className="item-desc">
-        <p className="item-title">Cup Cake</p>
-        <p className="item-price">¥<span>30</span></p>
-        <p className="item-detail">Matcha</p>
-        <Quantity type="min" count={1} />
+        <p className="item-title">{props.name}</p>
+        <p className="item-price">¥<span>{props.price}</span></p>
+        <p className="item-detail">
+          <span>Matcha</span>
+          <span>, 6 inch</span>
+        </p>
+        <Quantity type="min" count={props.count} />
       </div>
       <div className="delete">
         <Svg name='bin' />
