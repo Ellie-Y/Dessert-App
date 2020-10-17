@@ -1,16 +1,16 @@
 import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
+import store from '../../redux/store'
 import { Container, Button } from '@material-ui/core'
 import CartItem from './CartItem'
-import { CartContext } from '../../App'
 
 import './cart.scss'
 
 function Cart() {
-  const cartData = useContext(CartContext);
+  const cartData = store.getState().cart;
   let items = [];
   if (cartData && cartData.length !== 0) {
-    items = cartData.state.map(i => (
+    items = cartData.map(i => (
       <CartItem 
         key={i.item.id} 
         {...i.item}

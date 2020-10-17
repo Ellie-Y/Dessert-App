@@ -1,27 +1,18 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { add } from '../../redux/reducer/cartSlice'
 import Button from '@material-ui/core/Button'
 import PropTypes from 'prop-types'
 import Option from './Option'
 import Quantity from '../../components/Quantity'
 import getProductData from '../../hooks/getProductData'
-import { CartContext } from '../../App'
+import store from '../../redux/store'
 
 import './itemDetail.scss'
 
 function ItemDetail({ match }) {
   const item = getProductData(`/${match.params.id}`);  // 拿到item的 ID，然后发送请求拿到具体的信息
   const [count, setCount] = useState(1);
-  const context = useContext(CartContext);
-
-  const addToCart = () => {
-    context.dispatch({
-      type: "add",
-      payload: {
-        item,
-        count,
-      },
-    });
-  }
 
   const countChange = (value) => {
     if(value === 'increase') {
@@ -31,6 +22,19 @@ function ItemDetail({ match }) {
       setCount(count - 1);
     }
   }
+
+  const addToCart = () => {
+    store.dispatch({
+      type: add().type,
+      payload: {
+        item, 
+        count
+      }
+    });
+
+    console.log(store.getState());
+  }
+
 
   return (
     <div id="item-detail" >

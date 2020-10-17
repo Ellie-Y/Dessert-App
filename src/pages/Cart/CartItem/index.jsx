@@ -4,7 +4,7 @@ import Svg from '../../../components/Svg'
 
 import './cartItem.scss'
 
-// * 需要有个公共的对象来存放产品，其他页面能拿到且添加修改这个对象
+
 function CartItem(props) {
   return (
     <div className="cart-item mt-2">
