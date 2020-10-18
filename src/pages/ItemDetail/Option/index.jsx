@@ -41,7 +41,7 @@ function Option(props) {
 
 Option.defaultProps = {
   name: 'Taste',
-  options: ['草莓', '花生', '抹茶']
+  options: ['Matcha', 'Peanut', 'Caramel']
 }
 
 export default Option

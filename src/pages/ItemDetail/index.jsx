@@ -11,6 +11,7 @@ import store from '../../redux/store'
 import './itemDetail.scss'
 
 function ItemDetail({ match }) {
+  const cartItem = useSelector(state => state.cart);
   const item = getProductData(`/${match.params.id}`);  // 拿到item的 ID，然后发送请求拿到具体的信息
   const [count, setCount] = useState(1);
 
@@ -31,7 +32,6 @@ function ItemDetail({ match }) {
         count
       }
     });
-
     console.log(store.getState());
   }
 
@@ -49,7 +49,7 @@ function ItemDetail({ match }) {
             <p className="price"><span>¥</span>{item.price}</p>
           </div>
 
-          <Option name='Size' options={['6寸', '8寸', '10寸']} />
+          <Option name='Size' options={['6"', '8"', '10"']} />
           <Option />
 
           {/* 子组件是调用 onChange 函数，而 onChange 函数才来执行 countChange */}

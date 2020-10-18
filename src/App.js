@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from 'react-redux'
 import { hot } from "react-hot-loader";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { objectEquals } from "object-equals";
@@ -11,53 +12,11 @@ import ItemDetail from "./pages/ItemDetail";
 
 import "./App.scss";
 
-//* Hook reducer
-function reducer(state, action) {
-  switch (action.type) {
-    case "add":
-      const newItem = action.payload;
-      const hasItem = state.some((i) => i.item.id === newItem.item.id); //TODO id 有时候判断错误
-      // const hasItem = state.some(i => {
-      //   if (i.item.id === newItem.item.id) {
-      //     console.log(i.item.id, newItem.item.id);
-      //   }
-      //   else {
-      //     console.log(i.item.id, newItem.item.id);
-      //     return false;
-      //   }
-      // });
-      if (!hasItem) {
-        // 没有就直接添加
-        return [...state, newItem];
-      } else if (hasItem) {
-        // 有物品，在旧物品的基础上添加上新的数量，插入新对象并把旧物品删除
-        console.log("has item!");
-        const changedItem = state.map((i) =>
-          i.item.id === newItem.item.id
-            ? { item: newItem.item, count: newItem.count + i.count }
-            : i
-        );
-        // const oldItemIndex = state.findIndex(i => objectEquals(i, newItem));
-        const oldItemIndex = state.findIndex(
-          (i) => i.item.id === newItem.item.id
-        );
-        state.splice(oldItemIndex, 1, changedItem[0]);
-        return state;
-      }
-    case "update":
-      return state;
-    case "delete":
-      return { count: state.quantity + 1 };
-    case "decrease":
-      return { count: state.quantity - 1 };
-    case "increase":
-      return { count: state.quantity + 1 };
-    default:
-      return state;
-  }
-}
-
 function App() {
+  const cartItem = useSelector(state => state.cart);
+  const cartItemCount = cartItem.length;
+  
+
   return (
     <Router>
       <Header />
@@ -69,7 +28,7 @@ function App() {
         <Route path="/item/:id" component={ItemDetail} />
       </Switch>
 
-      <Footer />
+      <Footer count={cartItemCount} />
     </Router>
   );
 }

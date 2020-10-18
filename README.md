@@ -1,5 +1,7 @@
 # KOJIRO
 
+<img src="https://i.loli.net/2020/10/18/1BoYQXtsRdjl6WF.png" width="300px" />
+
 Kojiro is an online dessert ordering application, includes basic commercial app functions. There is also a backend built and come with Restful APIs.
 
 ### Feature
@@ -21,3 +23,4 @@ Kojiro is an online dessert ordering application, includes basic commercial app 
 Then all is good to go, enjoy! 😊
 
 ### Gif
+<img scr="">
