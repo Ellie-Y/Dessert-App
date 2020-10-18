@@ -23,4 +23,4 @@ Kojiro is an online dessert ordering application, includes basic commercial app 
 Then all is good to go, enjoy! 😊
 
 ### Gif
-<img scr="">
+<img scr="https://github.com/Ellie-Y/Dessert-App/blob/master/demo.gif" width="300px">
