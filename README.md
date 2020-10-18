@@ -18,8 +18,7 @@ Kojiro is an online dessert ordering application, includes basic commercial app 
 
 #### Kojira app
 1. **`yarn install`** to download the dependecies for the KOJIRO app
-
-Then all is good to go, enjoy! 😊
+2. Then all is good to go, enjoy! 😊
 
 ### Gif demo
 <img src="https://github.com/Ellie-Y/Dessert-App/blob/master/demo.gif" width="300px">
