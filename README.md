@@ -11,7 +11,7 @@ Kojiro is an online dessert ordering application, includes basic commercial app 
 ### How to use
 
 - Server
-1. Download the its [sever](https://github.com/Ellie-Y/Kojiro-Server)
+1. Download the its [server](https://github.com/Ellie-Y/Kojiro-Server)
 2. **`npm install`** to download the dependecies for the ORM server
 3. **`npm start`** to open the port 5050 server and async the models as well as the dummy data
 
