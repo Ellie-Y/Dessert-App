@@ -1,6 +1,6 @@
 # KOJIRO 
 
-🍰 🍰 🍰 <hr/>
+🍰 🍰 🍰 <br/>
 Kojiro is an online dessert ordering application, includes basic commercial app functions. There is also a backend built and come with Restful APIs.
 
 ### Feature
