@@ -1,7 +1,7 @@
 # KOJIRO 
 
 🍰 🍰 🍰 <br/>
-Kojiro is an online dessert ordering application, includes basic commercial app functions. There is also a backend built and come with Restful APIs.
+Kojiro is an online dessert ordering application, includes basic commercial app functions. There is also a backend [server](https://github.com/Ellie-Y/Kojiro-Server) and come with Restful APIs.
 
 ### Feature
 
