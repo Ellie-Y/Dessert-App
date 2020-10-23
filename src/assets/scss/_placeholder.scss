@@ -4,6 +4,10 @@
   align-items: center;
 }
 
+%shadow {
+  box-shadow: 0 2px 10px rgb(235, 230, 230);
+}
+
 %appearance {
   -moz-appearance: none;
   -webkit-appearance: none;

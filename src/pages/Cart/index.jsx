@@ -23,8 +23,6 @@ function Cart() {
     cartItem.forEach(i => totalPrice += i.count * i.item.price);
   }
 
-
-
   return (
     <Container maxWidth="sm" id="shopping-cart">
       <h1>Your order</h1>
