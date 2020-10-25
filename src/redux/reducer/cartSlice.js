@@ -1,18 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-function changeQuantity(type, state, action) {
-  const itemIndex = state.findIndex(i => i.item.id === action.payload);
-  let updateItem = null;
-  state.forEach(i => {
-    switch (type) {
-      case 'increase':
-        return i.item.id === action.payload ? updateItem = {item: i.item, count: i.count + 1} : i
-      case 'decrease':
-        return i.item.id === action.payload ? updateItem = {item: i.item, count: i.count - 1} : i
-    }
-  });
-  state.splice(itemIndex, 1, updateItem);
-  return state;
+function getIndex(arr, id) {
+  return arr.findIndex(i => i.item.id === id);
 }
 
 const cartSlice = createSlice({  // generated type {type: "shoppingCart/add"}
@@ -21,26 +10,25 @@ const cartSlice = createSlice({  // generated type {type: "shoppingCart/add"}
   reducers: {
     add: (state, action) => {   // payload is an item object
       const newItem = action.payload;
-      const itemIndex = state.findIndex(i => i.item.id === newItem.item.id);
-      if (itemIndex === -1) { 
-        return [ ...state, newItem];
+      const index = state.findIndex(i => i.item.id === newItem.item.id);
+      if (index === -1) {   // No item exists
+        state.push(newItem);
       }
-      else {  // Item exists then change its quantity and delete the old item
-        let changedItem = null;
-        state.forEach(i => i.item.id === newItem.item.id ? changedItem = {item: newItem.item, count: newItem.count + i.count} : i);
-        state.splice(itemIndex, 1, changedItem);
-        return state;
+      else {  // Item exists then change its quantity
+        state[index].count += newItem.count
       }
     },
     increaseOne: (state, action) => {  // payload is id
-      return changeQuantity('increase', state, action);
+      const index = getIndex(state, action.payload);
+      state[index].count ++;
     },
     decreaseOne: (state, action) => {
-      return changeQuantity('decrease', state, action);
+      const index = getIndex(state, action.payload);
+      state[index].count --;
     },
     deleteItem: (state, action) => {
-      state.splice(state.findIndex(i => i.item.id === action.payload), 1);
-      return state;
+      const index = getIndex(state, action.payload);
+      state.splice(index, 1);
     },
   }
 });

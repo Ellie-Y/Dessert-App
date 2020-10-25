@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { increaseOne, decreaseOne } from '../../redux/reducer/cartSlice';
-import store from '../../redux/store';
 import Svg from '../Svg'
 import Snackbar from '@material-ui/core/Snackbar';
 
 import './quantity.scss'
 
 function Quantity(props) {
+  const dispatch = useDispatch();
   const [popupState, setPopupState] = useState({
     open: false,
     vertical: 'top',
@@ -18,11 +19,11 @@ function Quantity(props) {
   
   const reduceCount = () => props.onChange('decrease');
 
-  const addOne = () => store.dispatch(store.dispatch(increaseOne(props.id)));
+  const addOne = () => dispatch(increaseOne(props.id));
 
   const reduceOne = () => props.count <= 1 
       ? setPopupState({ ...popupState, open: true })
-      : store.dispatch(decreaseOne(props.id));
+      : dispatch(decreaseOne(props.id));
 
   const handelClose = () => setPopupState({ ...popupState, open: false });  //? 为什么展开一定要放前面
 

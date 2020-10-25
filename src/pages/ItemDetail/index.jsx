@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { add } from '../../redux/reducer/cartSlice'
 import Button from '@material-ui/core/Button'
 import PropTypes from 'prop-types'
 import Option from './Option'
 import Quantity from '../../components/Quantity'
 import getProductData from '../../hooks/getProductData'
-import store from '../../redux/store'
 
 import './itemDetail.scss'
 
 function ItemDetail({ match }) {
+  const dispatch = useDispatch();
   const item = getProductData(`/${match.params.id}`);  // 拿到item的 ID，然后发送请求拿到具体的信息
   const [count, setCount] = useState(1);
 
@@ -22,7 +23,7 @@ function ItemDetail({ match }) {
     }
   }
 
-  const addToCart = () => store.dispatch( add({item, count}) );
+  const addToCart = () => dispatch( add({item, count}) );
 
   return (
     <div id="item-detail" >

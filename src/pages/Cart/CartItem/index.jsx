@@ -1,5 +1,5 @@
 import React from 'react'
-import store from '../../../redux/store'
+import { useDispatch } from 'react-redux'
 import { deleteItem } from '../../../redux/reducer/cartSlice';
 import Quantity from '../../../components/Quantity'
 import Svg from '../../../components/Svg'
@@ -7,7 +7,8 @@ import Svg from '../../../components/Svg'
 import './cartItem.scss'
 
 function CartItem(props) {
-  const deleteProduct = () => store.dispatch(deleteItem(props.id));
+  const dispatch = useDispatch();
+  const deleteProduct = () => dispatch(deleteItem(props.id));
 
   return (
     <div className="cart-item mt-2">
