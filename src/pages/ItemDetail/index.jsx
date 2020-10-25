@@ -22,17 +22,7 @@ function ItemDetail({ match }) {
     }
   }
 
-  const addToCart = () => {
-    store.dispatch({
-      type: add().type,
-      payload: {
-        item, 
-        count
-      }
-    });
-    console.log(store.getState());
-  }
-
+  const addToCart = () => store.dispatch( add({item, count}) );
 
   return (
     <div id="item-detail" >

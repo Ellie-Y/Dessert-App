@@ -26,10 +26,14 @@ function Cart() {
   return (
     <Container maxWidth="sm" id="shopping-cart">
       <h1>Your order</h1>
-      {items.length === 0 
+      {
+        items.length === 0 
         ? <img src="https://i.loli.net/2020/10/18/OvYmx8X6q7ZVpHM.png" className="mt-5"></img>  
-        : items}
-
+        :  <div className="item-group">
+            {items}
+          </div>
+      }
+      {/* Checkout section */}
       <div className="cartBtn-wrapper">
         <div className="total-amount">
           <p className="light">Total</p>

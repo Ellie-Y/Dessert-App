@@ -7,12 +7,7 @@ import Svg from '../../../components/Svg'
 import './cartItem.scss'
 
 function CartItem(props) {
-  const deleteProduct = () => {
-    store.dispatch({
-      type: deleteItem().type,
-      payload: props.id
-    });
-  }
+  const deleteProduct = () => store.dispatch(deleteItem(props.id));
 
   return (
     <div className="cart-item mt-2">

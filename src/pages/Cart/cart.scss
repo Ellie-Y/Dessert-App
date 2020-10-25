@@ -1,11 +1,20 @@
 $padding: 36px;
 $inner-padding: 15px;
+$checkout: 64px;
 
 #shopping-cart {
   padding: 0 $padding;
 
+  .item-group {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: $checkout * 3;
+    overflow-y: auto;
+  }
+
   .cartBtn-wrapper {
-    // Checkout width equals container width
+    // The width of checkout equals container width
     width: calc(100% - #{($padding * 2) + ($inner-padding * 2)}); 
     bottom: 68px;
     justify-content: space-between;

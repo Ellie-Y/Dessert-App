@@ -2,8 +2,8 @@
   height: 60px;
 
   .MuiSnackbarContent-root {
-    padding: 0 16px;
-    background-color: lighten($color: $main, $amount: 15%);
+    padding: 3px 16px;
+    background-color: lighten($color: $main, $amount: 10%);
     flex-grow: 0.5;
 
     &.MuiPaper-elevation6 {

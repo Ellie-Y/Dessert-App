@@ -7,7 +7,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import './quantity.scss'
 
 function Quantity(props) {
-  const [popupState, setPopupState] = React.useState({
+  const [popupState, setPopupState] = useState({
     open: false,
     vertical: 'top',
     horizontal: 'center',
@@ -15,29 +15,16 @@ function Quantity(props) {
   const { vertical, horizontal, open } = popupState;
 
   const addCount = () => props.onChange('increase');
+  
   const reduceCount = () => props.onChange('decrease');
 
-  const addOne = () => {
-    store.dispatch({
-      type: increaseOne().type,
-      payload: props.id,
-    });
-  }
-  const reduceOne = () => {
-    if (props.count <= 1) {
-      setPopupState({ ...popupState, open: true });  //? 为什么展开一定要放前面
-    }
-    else {
-      store.dispatch({
-        type: decreaseOne().type,
-        payload: props.id,
-      });
-    }
-  }
+  const addOne = () => store.dispatch(store.dispatch(increaseOne(props.id)));
 
-  const handelClose = () => {
-    setPopupState({ ...popupState, open: false });  //? 为什么展开一定要放前面
-  }
+  const reduceOne = () => props.count <= 1 
+      ? setPopupState({ ...popupState, open: true })
+      : store.dispatch(decreaseOne(props.id));
+
+  const handelClose = () => setPopupState({ ...popupState, open: false });  //? 为什么展开一定要放前面
 
   return (
     <>
@@ -65,11 +52,11 @@ function Quantity(props) {
           <div className="quantity-wrapper">
             <p className="quantity-title">Quantity</p>
             <div className="quantity">
-              <div onClick={() => reduceCount()} className="countBtn minus">
+              <div onClick={reduceCount} className="countBtn minus">
                 <Svg name='minus' />
               </div>
               <div className="number">{props.count}</div>
-              <div onClick={() => addCount()} className="countBtn plus">
+              <div onClick={addCount} className="countBtn plus">
                 <Svg name='plus' />
               </div>
             </div>

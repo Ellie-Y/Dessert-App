@@ -19,13 +19,13 @@ const cartSlice = createSlice({  // generated type {type: "shoppingCart/add"}
   name: 'shoppingCart',
   initialState: [],
   reducers: {
-    add: (state, action) => {   // payload is a object
+    add: (state, action) => {   // payload is an item object
       const newItem = action.payload;
       const itemIndex = state.findIndex(i => i.item.id === newItem.item.id);
-      if (itemIndex === -1) {  // 没有就直接添加
+      if (itemIndex === -1) { 
         return [ ...state, newItem];
       }
-      else {  // 有物品，在旧物品的基础上添加上新的数量，插入新对象并把旧物品删除
+      else {  // Item exists then change its quantity and delete the old item
         let changedItem = null;
         state.forEach(i => i.item.id === newItem.item.id ? changedItem = {item: newItem.item, count: newItem.count + i.count} : i);
         state.splice(itemIndex, 1, changedItem);
@@ -41,9 +41,6 @@ const cartSlice = createSlice({  // generated type {type: "shoppingCart/add"}
     deleteItem: (state, action) => {
       state.splice(state.findIndex(i => i.item.id === action.payload), 1);
       return state;
-    },
-    update: (state, action) => {
-      [...state, 1];
     },
   }
 });
