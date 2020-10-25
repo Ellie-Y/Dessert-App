@@ -10,12 +10,14 @@ const cartSlice = createSlice({  // generated type {type: "shoppingCart/add"}
   reducers: {
     add: (state, action) => {   // payload is an item object
       const newItem = action.payload;
-      const index = state.findIndex(i => i.item.id === newItem.item.id);
+      const index = getIndex(state, newItem.item.id);
       if (index === -1) {   // No item exists
         state.push(newItem);
       }
       else {  // Item exists then change its quantity
-        state[index].count += newItem.count
+        state[index].count += newItem.count;
+        //  no mutate state way
+        // const changedItem = state.map(i => i.item.id === newItem.id ? i.count += newItem.count : i);
       }
     },
     increaseOne: (state, action) => {  // payload is id

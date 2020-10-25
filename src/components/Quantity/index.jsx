@@ -25,7 +25,7 @@ function Quantity(props) {
       ? setPopupState({ ...popupState, open: true })
       : dispatch(decreaseOne(props.id));
 
-  const handelClose = () => setPopupState({ ...popupState, open: false });  //? 为什么展开一定要放前面
+  const handelClose = () => setPopupState({ ...popupState, open: false });
 
   return (
     <>

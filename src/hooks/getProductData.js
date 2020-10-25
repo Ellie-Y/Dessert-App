@@ -18,7 +18,9 @@ function getProductData(type) {
     // 也可以写成 IIFE, 不执行或者不写成 IIFE 就会返回 promise 对象
     // 然而 useEffect 必须返回 undefined 或者一个函数
     fetchData();
+    
     return () => isUnmounted = !isUnmounted;
+
   }, []);  // FIXME 传了 type 作为参数会无限循环
 
   return data;
