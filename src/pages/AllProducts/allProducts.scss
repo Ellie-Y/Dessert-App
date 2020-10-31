@@ -1,0 +1,17 @@
+#all-products {
+
+  .products-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .basic-card {
+      margin: 0 0 15px 0;
+
+      &::after {
+        content: "";
+        width: inherit;
+      }
+    }
+  }
+}

@@ -14,16 +14,20 @@ body {
   font-size: 16px;
   @extend %removeScrollBar;
 
-  
   #root, 
   #app-wrapper {
     @extend %removeScrollBar;
   }
 }
 
-#app-wrapper {
-  margin-bottom: 20%;
+// Empty place in the bottom
+.MuiContainer-root {
+  margin-bottom: 25%;
 }
+
+ #app-wrapper {
+   @extend .MuiContainer-root;
+ }
 
 .image-wrapper {
   width: 108px;
@@ -108,4 +112,8 @@ button {
         font-size: 1rem;
       }
     }
+}
+
+.global-width {
+  padding: 0 36px !important;
 }

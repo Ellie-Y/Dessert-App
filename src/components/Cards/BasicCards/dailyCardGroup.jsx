@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import SingleCard from './SingleCard'
 import getProductData from '../../../hooks/getProductData'
 

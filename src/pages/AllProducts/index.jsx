@@ -1,11 +1,20 @@
 import React from 'react'
+import Container from '@material-ui/core/Container'
 import SingleCard from '../../components/Cards/BasicCards/SingleCard'
 
-function AllProducts() {
+import './allProducts.scss'
+
+function AllProducts(type) {
   return (
-    <div>
-      <SingleCard />
-    </div>
+    <Container id="all-products" className="global-width">
+      <div className="products-wrapper">
+        <SingleCard />
+        <SingleCard />
+        <SingleCard />
+        <SingleCard />
+        <SingleCard />
+      </div>
+    </Container>
   )
 }
 

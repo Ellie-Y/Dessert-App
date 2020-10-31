@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Container from '@material-ui/core/Container';
+import Container from '@material-ui/core/Container'
+import { BrowserRouter as Switch, Route, Link, useRouteMatch } from "react-router-dom"
+import AllProducts from '../AllProducts'
 
 import './category.scss'
-
 
 const imageUrls = [
   'https://i.ibb.co/8bXCv6d/chocolate-cake.png',
@@ -24,13 +25,9 @@ function CategoryCard(props) {
   )
 }
 
-CategoryCard.propTypes = {
-  url: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired
-}
-
-
 function Category() {
+  let { path, url } = useRouteMatch();
+
   return (
     <Container id="category">
       <div className="wrapper">
@@ -40,14 +37,20 @@ function Category() {
         </div>
 
         <div className="card-group">
-          <CategoryCard url={imageUrls[0]} name='Cake' />
+          <Link to={`${url}/cake`}>
+            <CategoryCard url={imageUrls[0]} name='Cake' />
+          </Link>
           <CategoryCard url={imageUrls[1]} name='Biscuit' />
           <CategoryCard url={imageUrls[2]} name="Bakery" />
         </div>
       </div>
-
     </Container>
   )
+}
+
+CategoryCard.propTypes = {
+  url: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired
 }
 
 export default Category
