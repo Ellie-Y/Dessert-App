@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Container from '@material-ui/core/Container'
-import { BrowserRouter as Switch, Route, Link, useRouteMatch } from "react-router-dom"
-import AllProducts from '../AllProducts'
+// 一定要有 Route 不然 Link 会失效
+import { BrowserRouter as Route, Link, useRouteMatch } from "react-router-dom" 
 
 import './category.scss'
 
@@ -26,7 +26,13 @@ function CategoryCard(props) {
 }
 
 function Category() {
-  let { path, url } = useRouteMatch();
+  let { url } = useRouteMatch();
+  const type = ['Cake', 'Biscuit', 'Bakery'];
+  const categoryCards = type.map((val, i) => (
+    <Link to={`${url}/${val}`}>
+      <CategoryCard url={imageUrls[i]} name={`${val}`} key={i + 1} />
+    </Link>
+  ));
 
   return (
     <Container id="category">
@@ -35,13 +41,8 @@ function Category() {
           <h1>Select</h1>
           <h1>product type</h1>
         </div>
-
         <div className="card-group">
-          <Link to={`${url}/cake`}>
-            <CategoryCard url={imageUrls[0]} name='Cake' />
-          </Link>
-          <CategoryCard url={imageUrls[1]} name='Biscuit' />
-          <CategoryCard url={imageUrls[2]} name="Bakery" />
+          {categoryCards}
         </div>
       </div>
     </Container>

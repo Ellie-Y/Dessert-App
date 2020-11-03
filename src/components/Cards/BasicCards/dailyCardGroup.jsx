@@ -11,7 +11,7 @@ function DailyCardGroup() {
       key={i}
       {...dailyCardData[i]}
     />
-  ))
+  ));
 
   return (
     <div className="sale-card-wrapper">
