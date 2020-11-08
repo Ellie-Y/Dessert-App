@@ -12,6 +12,7 @@ import './itemDetail.scss'
 function ItemDetail({ match }) {
   const dispatch = useDispatch();
   const item = getProductData(`/${match.params.id}`);  // 拿到item的 ID，然后发送请求拿到具体的信息
+  const { main_img, name, price, size, taste } = item;
   const [count, setCount] = useState(1);
 
   const countChange = (value) => {
@@ -28,18 +29,18 @@ function ItemDetail({ match }) {
   return (
     <div id="item-detail" >
       <div className="img-wrapper">
-        <img src={item.imageUrl} alt={item.name} />
+        <img src={main_img} alt={name} />
       </div>
       <div className="content-wrapper">
         <div className="content">
-          {/* Title */}
+
           <div className="title">
-            <p className="name">{item.name}</p>
-            <p className="price"><span>¥</span>{item.price}</p>
+            <p className="name">{name}</p>
+            <p className="price"><span>¥</span>{item.data ? price : price.split(',')[0]}</p>
           </div>
 
-          <Option name='Size' options={['6"', '8"', '10"']} />
-          <Option />
+          <Option name='Size' options={size} />
+          <Option name="Taste" options={taste} />
 
           {/* 子组件是调用 onChange 函数，而 onChange 函数才来执行 countChange */}
           <Quantity count={count} onChange={countChange} />
@@ -66,7 +67,7 @@ ItemDetail.propTypes = {
 ItemDetail.defaultProps = {
   imgAlt: "Cookie image",
   name: "Cookie",
-  price: 20,
+  price: 999,
   options: ['6寸', '8寸', '10寸']
 }
 

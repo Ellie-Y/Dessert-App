@@ -13,11 +13,12 @@ $pink: #f5dad4;
 
   .option-group {
     display: flex;
+    flex-wrap: wrap;
 
     .option-item {
       padding: 8px 10px;
       border-radius: 8px;
-      margin-right: 20px;
+      margin: 0 20px 10px 0;
       background-color: rgb(243, 243, 243);
       cursor: pointer;
 

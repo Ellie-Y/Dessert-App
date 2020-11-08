@@ -13,7 +13,7 @@ function CartItem(props) {
   return (
     <div className="cart-item mt-2">
       <div className="image-wrapper">
-        <img src={props.imageUrl} alt={props.name}></img>
+        <img src={props.main_img} alt={props.name}></img>
       </div>
       <div className="item-desc">
         <p className="item-title">{props.name}</p>

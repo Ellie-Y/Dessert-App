@@ -5,11 +5,11 @@ import './option.scss'
 
 Option.propTypes = {
   name: PropTypes.string.isRequired,
-  options: PropTypes.array.isRequired
+  options: PropTypes.string.isRequired
 }
 
 function Option(props) {
-  const options = props.options;
+  const options = props.options.split(',')
   const [clicked, setClick] = useState('');
 
   return (
@@ -34,14 +34,13 @@ function Option(props) {
           ))
         }
       </div>
-
     </div>
   )
 }
 
 Option.defaultProps = {
   name: 'Taste',
-  options: ['Matcha', 'Peanut', 'Caramel']
+  options: "Loading",
 }
 
 export default Option

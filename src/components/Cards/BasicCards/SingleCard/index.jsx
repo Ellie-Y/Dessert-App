@@ -10,12 +10,12 @@ function SingCard(props) {
     <div className="basic-card">
       <Link to={`/item/${props.id}`}>
         <div className="image-wrapper">
-          <img src={props.imageUrl} alt={props.alt}></img>
+          <img src={props.main_img} alt={props.alt}></img>
         </div>
       </Link>
       <div className="name">{props.name}</div>
       <div className="bottom">
-        <p className="price">¥{props.price}</p>
+        <p className="price">¥{props.price.split(',')[0]}</p>
         <i className="fas fa-shopping-cart"></i>
       </div>
     </div>
