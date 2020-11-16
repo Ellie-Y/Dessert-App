@@ -28,8 +28,8 @@ function Cart() {
       <h1>Your order</h1>
       {
         items.length === 0 
-        ? <img src="https://i.loli.net/2020/10/18/OvYmx8X6q7ZVpHM.png" className="mt-5"></img>  
-        :  <div className="item-group">
+          ? <img src="https://i.loli.net/2020/10/18/OvYmx8X6q7ZVpHM.png" className="mt-5" alt="Empty shopping cart"></img>
+          : <div className="item-group">
             {items}
           </div>
       }
