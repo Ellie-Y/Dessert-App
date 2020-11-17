@@ -9,7 +9,7 @@ $checkout: 64px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    padding-bottom: $checkout * 3;
+    padding-bottom: $checkout;
     overflow-y: auto;
   }
 
