@@ -9,6 +9,7 @@ import './cartItem.scss'
 function CartItem(props) {
   const dispatch = useDispatch();
   const deleteProduct = () => dispatch(deleteItem(props.id));
+  console.log(props);
 
   return (
     <div className="cart-item mt-2">
@@ -19,8 +20,8 @@ function CartItem(props) {
         <p className="item-title">{props.name}</p>
         <p className="item-price">¥<span>{props.price}</span></p>
         <p className="item-detail">
-          <span>Matcha</span>
-          <span>, 6 inch</span>
+          <span>{props.taste}</span>
+          <span>, {props.size}</span>
         </p>
         <Quantity type="min" count={props.count} id={props.id} />
       </div>

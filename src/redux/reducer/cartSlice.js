@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 function getIndex(arr, id) {
-  return arr.findIndex(i => i.item.id === id);
+  return arr.findIndex((i) => i.chosenItem.id === id);
 }
 
 const cartSlice = createSlice({  // generated type {type: "shoppingCart/add"}
@@ -9,13 +9,13 @@ const cartSlice = createSlice({  // generated type {type: "shoppingCart/add"}
   initialState: [],
   reducers: {
     add: (state, action) => {   // payload is an item object
-      const newItem = action.payload;
-      const index = getIndex(state, newItem.item.id);
+      const item = action.payload;
+      const index = getIndex(state, item.chosenItem.id);
       if (index === -1) {   // No item exists
-        state.push(newItem);
+        state.push(item);
       }
       else {  // Item exists then change its quantity
-        state[index].count += newItem.count;
+        state[index].count += item.count;
         //  no mutate state way
         // const changedItem = state.map(i => i.item.id === newItem.id ? i.count += newItem.count : i);
       }

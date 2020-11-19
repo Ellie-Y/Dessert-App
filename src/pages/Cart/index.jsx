@@ -13,14 +13,14 @@ function Cart() {
 
   if (cartItem && cartItem.length !== 0) {
     items = cartItem.map(i => (
-      <CartItem 
-        key={i.item.id} 
-        {...i.item}
+      <CartItem
+        key={i.chosenItem.id}
+        {...i.chosenItem}
         count={i.count}
       />
     ));
 
-    cartItem.forEach(i => totalPrice += i.count * i.item.price);
+    cartItem.forEach(i => totalPrice += i.count * i.chosenItem.price);
   }
 
   return (

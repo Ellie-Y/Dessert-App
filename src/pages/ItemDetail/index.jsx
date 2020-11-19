@@ -11,6 +11,8 @@ import './itemDetail.scss'
 
 function ItemDetail({ match }) {
   const [price, setPrice] = useState(0)
+  const [curSize, setCurSize] = useState('')
+  const [curTaste, setCurTaste] = useState('')
   const [count, setCount] = useState(1)
   const itemRef = useRef()
 
@@ -26,14 +28,12 @@ function ItemDetail({ match }) {
 
   //默认选中第一个属性，然后价格设置为第一个属性的价格
   const sizeChange = (i, item) => {
-    if (itemRef.current.price) {
-      let newPrice = itemRef.current.price.split(',')[i]
-      setPrice(newPrice)
-    }
-    console.log(item)
+    let newPrice = itemRef.current.price.split(',')[i]
+    setPrice(newPrice)
+    setCurSize(item)
   }
 
-  const tasteChange = (i, item) => console.log(item);
+  const tasteChange = (i, item) => setCurTaste(item);
 
   const countChange = (value) => {
     if(value === 'increase') {
@@ -45,7 +45,15 @@ function ItemDetail({ match }) {
   }
 
   const dispatch = useDispatch()
-  const addToCart = () => dispatch( add({item, count}) );
+  const addToCart = () => {
+    const chosenProps = {
+      price: price,
+      size: curSize,
+      taste: curTaste
+    }
+    const chosenItem = Object.assign({}, item, chosenProps)  // First param is target
+    dispatch(add({ chosenItem, count }))
+  }
 
   return (
     <div id="item-detail" >
