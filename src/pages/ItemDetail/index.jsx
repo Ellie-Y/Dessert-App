@@ -6,11 +6,13 @@ import PropTypes from 'prop-types'
 import Option from './Option'
 import Quantity from '../../components/Quantity'
 import getProductData from '../../hooks/getProductData'
+import Snackbar from '../../components/Tools/Snackbar'
 
 import './itemDetail.scss'
 
 function ItemDetail({ match }) {
   const [price, setPrice] = useState(0)
+  const [showSnackbar, setShowSnackbar] = useState(false);
   const [curSize, setCurSize] = useState('')
   const [curTaste, setCurTaste] = useState('')
   const [count, setCount] = useState(1)
@@ -46,42 +48,53 @@ function ItemDetail({ match }) {
 
   const dispatch = useDispatch()
   const addToCart = () => {
-    const chosenProps = {
-      price: price,
-      size: curSize,
-      taste: curTaste
+    if (curSize.length === 0 || curTaste.length === 0) {
+      setShowSnackbar(!showSnackbar)
+    } else {
+      const chosenProps = {
+        price: price,
+        size: curSize,
+        taste: curTaste
+      }
+      const chosenItem = Object.assign({}, item, chosenProps)  // First param is target
+      dispatch(add({ chosenItem, count }))
     }
-    const chosenItem = Object.assign({}, item, chosenProps)  // First param is target
-    dispatch(add({ chosenItem, count }))
   }
 
+  const snackbarOff = () => setShowSnackbar(false);
+
   return (
-    <div id="item-detail" >
-      <div className="img-wrapper">
-        <img src={main_img} alt={name} />
-      </div>
-      <div className="content-wrapper">
-        <div className="content">
-          <div className="title">
-            <p className="name">{name}</p>
-            <p className="price"><span>¥</span>{price}</p>
+    <>
+      <div id="item-detail" >
+        <div className="img-wrapper">
+          <img src={main_img} alt={name} />
+        </div>
+        <div className="content-wrapper">
+          <div className="content">
+            <div className="title">
+              <p className="name">{name}</p>
+              <p className="price"><span>¥</span>{price}</p>
+            </div>
+
+            <Option name="Size" options={size} sizeChange={sizeChange} />
+            <Option name="Taste" options={taste} tasteChange={tasteChange} />
+
+            {/* 子组件是调用 onChange 函数，而 onChange 函数才来执行 countChange */}
+            <Quantity count={count} onChange={countChange} />
           </div>
-
-          <Option name="Size" options={size} sizeChange={sizeChange} />
-          <Option name="Taste" options={taste} tasteChange={tasteChange} />
-
-          {/* 子组件是调用 onChange 函数，而 onChange 函数才来执行 countChange */}
-          <Quantity count={count} onChange={countChange} />  
+        </div>
+        <div className="cartBtn-wrapper">
+          <Button
+            color="primary" className="cartBtn" variant="contained"
+            disableElevation
+            onClick={addToCart}
+          >Add to cart</Button>
         </div>
       </div>
-      <div className="cartBtn-wrapper">
-        <Button
-          color="primary" className="cartBtn" variant="contained"
-          disableElevation
-          onClick={addToCart}
-        >Add to cart</Button>
-      </div>
-    </div>
+
+      <Snackbar msg="Please choose item types!" duration={2500} open={showSnackbar} timeout={snackbarOff} />
+    </>
+
   )
 }
 

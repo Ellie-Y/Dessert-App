@@ -2,18 +2,13 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { increaseOne, decreaseOne } from '../../redux/reducer/cartSlice';
 import Svg from '../Svg'
-import Snackbar from '@material-ui/core/Snackbar';
+import Snackbar from '../Tools/Snackbar'
 
 import './quantity.scss'
 
 function Quantity(props) {
   const dispatch = useDispatch();
-  const [popupState, setPopupState] = useState({
-    open: false,
-    vertical: 'top',
-    horizontal: 'center',
-  });
-  const { vertical, horizontal, open } = popupState;
+  const [showSnackbar, setShowSnackbar] = useState(false);
 
   const addCount = () => props.onChange('increase');
   
@@ -22,21 +17,15 @@ function Quantity(props) {
   const addOne = () => dispatch(increaseOne(props.id));
 
   const reduceOne = () => props.count <= 1 
-      ? setPopupState({ ...popupState, open: true })
-      : dispatch(decreaseOne(props.id));
+    ? setShowSnackbar(!showSnackbar)
+    : dispatch(decreaseOne(props.id));
 
-  const handelClose = () => setPopupState({ ...popupState, open: false });
+  const snackbarOff = () => setShowSnackbar(false);
 
   return (
-    <>
-      <Snackbar
-        autoHideDuration={2500}
-        anchorOrigin={{ vertical, horizontal }}
-        open={open}
-        onClose={handelClose}
-        message="Too less quantity!"
-        key={vertical + horizontal}
-      />
+    <> 
+      <Snackbar msg="Too less quantity!" duration={2500} open={showSnackbar} timeout={snackbarOff} />
+
       {
         props.type === 'min'
           ?  // 当计数器在购物车页面的时候
