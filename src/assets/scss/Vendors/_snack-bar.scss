@@ -9,5 +9,9 @@
     &.MuiPaper-elevation6 {
       @extend %shadow;
     }
+
+    .MuiSnackbarContent-message {
+      margin: 0 auto;
+    }
   }
 }

@@ -26,7 +26,7 @@ SingCard.defaultProps = {
   imageUrl: 'https://i.ibb.co/ZT4L6zs/default-Pic.jpg',
   name: 'No name yet',
   price: '999',
-  alt: 'No description yet'
+  alt: 'Product image'
 }
 
 SingCard.propTypes = {
