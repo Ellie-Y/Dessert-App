@@ -9,18 +9,17 @@ import { ThemeProvider } from "@material-ui/styles";
 const theme = createMuiTheme({
   palette: {
     primary: {
-      light: "#f5edeb",
-      main: "#f0b5a8",
-      contrastText: "#fff",
+      light: '#f5edeb',
+      main: '#f0b5a8',
+      contrastText: '#fff',
     },
     secondary: {
-      light: "#ff7961",
-      main: "#f44336",
-      dark: "#ba000d",
-      contrastText: "#000",
+      main: '#f44336',
+      dark: '#ba000d',
+      contrastText: '#000',
     },
   },
-});
+})
 
 ReactDOM.render(
   <Provider store={store}>

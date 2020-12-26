@@ -22,7 +22,7 @@ body {
 
 // Empty place in the bottom
 .MuiContainer-root {
-  margin-bottom: 25%;
+  padding-bottom: 25%;
 }
 
  #app-wrapper {
@@ -75,7 +75,7 @@ button {
 
 .light {
   color: $light_text;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 .mt-1 {

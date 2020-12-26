@@ -33,7 +33,7 @@ function Quantity(props) {
             <div onClick={reduceOne} className="countBtn minus">
               <Svg name='minus' />
             </div>
-            <div>{props.count}</div>
+            <div className="number">{props.count}</div>
             <div onClick={addOne} className="countBtn plus">
               <Svg name='plus' />
             </div>

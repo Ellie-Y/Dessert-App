@@ -1,17 +1,19 @@
+$width: 136px;
+
 #all-products {
 
   .products-wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
 
-    .basic-card {
-      margin: 0 0 15px 0;
-
-      &::after {
+    &::after {      // 最后一列加个伪元素来强制对齐
         content: "";
-        width: inherit;
+        width: $width;
       }
+
+    .basic-card {
+      margin-bottom: 16px;
     }
   }
 }

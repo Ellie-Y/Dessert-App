@@ -21,7 +21,6 @@ function ItemDetail({ match }) {
   const item = getProductData(`/${match.params.id}`)  // 拿到item的 ID，然后发送请求拿到具体的信息
 
   useEffect(() => {
-    console.log('useEffect Parent!')
     itemRef.current = item
     // 当得到了数据后，初始化的 item.data 就会被数据覆盖，这时再获取就是 undefined，如果是 undefined 则说明有数据了
     item.data ? setPrice(0) : setPrice(item.price.split(',')[0])

@@ -37,7 +37,7 @@ function Cart() {
       <div className="cartBtn-wrapper">
         <div className="total-amount">
           <p className="light">Total</p>
-          <h3 className="bold">$ {totalPrice}</h3>
+          <h2 className="bold">$ {totalPrice}</h2>
         </div>
         <Button color="primary" className="checkout-btn" variant="contained" disableElevation>Checkout</Button>
       </div>

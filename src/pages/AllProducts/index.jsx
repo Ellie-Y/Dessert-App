@@ -16,7 +16,7 @@ function AllProducts({ match }) {
   ));
 
   return (
-    <Container id="all-products" className="global-padding">
+    <Container id="all-products" className="global-padding mt-1">
       <div className="products-wrapper">
         {allItemByType}
       </div>

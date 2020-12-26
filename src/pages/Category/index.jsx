@@ -29,8 +29,8 @@ function Category() {
   let { url } = useRouteMatch();
   const type = ['Cake', 'Biscuit', 'Bakery'];
   const categoryCards = type.map((val, i) => (
-    <Link to={`${url}/${val}`}>
-      <CategoryCard url={imageUrls[i]} name={`${val}`} key={i + 1} />
+    <Link to={`${url}/${val}`} key={i} >
+      <CategoryCard url={imageUrls[i]} name={`${val}`} key={i} />
     </Link>
   ));
 
