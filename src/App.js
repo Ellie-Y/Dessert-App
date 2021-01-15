@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { hot } from "react-hot-loader";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -29,12 +29,12 @@ function App() {
         <Route path='/profile' component={Profile} />
 
         {/* 可以作为 page not found 页面 */}
-        {/* <Route component={Profile}/> */}
+        {/* <Route component={PageNotFound}/> */}
       </Switch>
 
       <Footer count={cartItemCount} />
     </Router>
-  )
+  );
 }
 
 export default hot(module)(App);
